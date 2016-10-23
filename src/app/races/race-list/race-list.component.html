@@ -1,0 +1,59 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-list" aria-hidden="true"></span> 
+    {{title}}
+    <span class="badge pull-right" title="Hits found">{{raceList.length}}</span>
+  </div>
+  <div class="panel-body">
+<!--
+    <ul *ngFor="let race of raceList; let i = index; let isEven = even;">
+      <li>
+        <a class="btn btn-sm btn-block" [ngClass]="{'btn-primary': isEven, 'btn-info': !isEven}" role="button" href="{{race.url}}" target="_blank">
+          Round {{race.round}} - {{race.raceName}} ({{race.date}} / {{race.time}})
+          </a>
+      </li>
+    </ul>
+-->
+
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Season</th>
+          <th>Round</th>
+          <th>
+            <p>Country</p>
+            <p>Name</p>
+            <p>Circuit</p>
+          </th>
+          <th>Date / Time</th>
+          <th>Details</th>
+        </tr>
+        <tr *ngFor="let race of raceList; let i = index; let isEven = even;">
+          <td>{{race.season}}</td>
+          <td>{{race.round}}</td>
+          <td>
+            <p>{{race.Circuit.Location.country}}</p>
+            <p>{{race.raceName}}</p>
+            <p>{{race.Circuit.circuitName}}</p>
+          </td>
+          <td>{{race.date}} / {{race.time}}</td>
+          <td>
+            <p>
+              <a href="{{race.Circuit.url}}" target="_blank">
+                Circuit Description
+              </a>
+            </p>
+            <p>
+              <a href="{{race.url}}" target="_blank">
+                Race Description
+              </a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  raceList: {{raceList | json}}
+</div> 

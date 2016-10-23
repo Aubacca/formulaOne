@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+    {{title}}
+  </div>
+  <div class="panel-body">
+    <form novalidate 
+      class="form-inline"
+      (submit)="submit($event)">
+      <div class="form-group">
+        <label class="sr-only2" for="limit">Limit</label>
+        <input type="number" class="form-control" id="limit" placeholder="Limit" value="30" min="1" max="100" required>
+      </div>
+      <div class="form-group">
+        <label class="sr-only2" for="offset">Offset</label>
+        <input type="number" class="form-control" id="offset" placeholder="Offset" value="0" min="0" max="100" required>
+      </div>
+      <button class="btn btn-default pull-right" (click)="reset($event)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+        Reset 
+      </button>
+      <button class="btn btn-primary pull-right" type="submit">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+        Suchen 
+      </button>
+    </form>
+  </div>
+</div>
+<div class="container-fluid">
+  loading: {{loading | json}}
+</div> 

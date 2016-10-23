@@ -1,0 +1,47 @@
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <hr>
+  <form [formGroup]="brokerForm" (ngSubmit)="submitForm(brokerForm.value)">
+    <div class="form-group" [ngClass]="{'has-error':!brokerForm.controls['startDate'].valid && brokerForm.controls['startDate'].touched}">
+      <label for="startDate">Wirkungsdatum:</label>
+      <input class="form-control" type="text" id="startDate" placeholder="Wirkungsdatum (DD.MM.YYYY)" maxlength="10"
+        [formControl]="brokerForm.controls['startDate']">
+      <div *ngIf="brokerForm.controls['startDate'].hasError('required') && brokerForm.controls['startDate'].touched" class="alert alert-danger">Sie müssen ein Wirkungsdatum erfassen.</div>
+      <div *ngIf="brokerForm.controls['startDate'].hasError('validDateFormat') && brokerForm.controls['startDate'].touched" class="alert alert-danger">Das Datum muss im Format 'DD.MM.YYYY' sein.</div>
+    </div>
+<!--
+    <div class="form-group" [ngClass]="{'has-error':!brokerForm.controls['partnerName'].valid && brokerForm.controls['partnerName'].touched}">
+-->
+    <div class="form-group">
+      <label for="partnerName">Bezeichnung:</label>
+      <input class="form-control" type="text" id="partnerName" placeholder="Partner Bezeichnung"
+        [formControl]="brokerForm.controls['partnerName']">
+    </div>
+    <hr>
+    <fieldset>
+      <legend>ZEPAS Daten zum Master</legend>
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" class="active"><a routerLink="/vsv/zepasMaster" routerLinkActive="active">Personendaten</a></li>
+        <li role="presentation"><a routerLink="/vsv/zepasMaster" routerLinkActive="active">Wohn/Geschäftadresse</a></li>
+        <li role="presentation"><a routerLink="/vsv/zepasMaster" routerLinkActive="active">Postfachadresse</a></li>
+        <li role="presentation"><a routerLink="/vsv/zepasMaster" routerLinkActive="active">Komm. Daten</a></li>
+      </ul>
+    </fieldset>
+    <!-- Here comes the ZEPAS detial components. -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="caption">
+          <h3>ZEPAS Personendaten</h3>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Routed views go here -->
+    <router-outlet></router-outlet>
+    <hr>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!brokerForm.valid">Submit</button>
+    </div>
+  </form>
+</div>

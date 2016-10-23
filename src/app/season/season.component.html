@@ -1,0 +1,10 @@
+<app-season-search #seasonSearch
+  (onSearch)="seasonList.loadSeasonData($event)"
+  (onReset)="seasonList.reset($event)"
+>
+
+</app-season-search>
+<app-season-list #seasonList
+  (onDone)="seasonSearch.done($event)"
+>
+</app-season-list>

@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <form #editForm="ngForm"
+    (ngSubmit)="saveData(editForm)"
+    novalidate>
+
+    <fieldset ngModelGroup="movie">
+      <legend>Movie</legend>
+
+      <p>
+        <label for="title">Title</label>
+        <input id="title"
+          type="text"
+          name="title"
+          placeholder="Title (required)"
+          #title
+          [(ngModel)]="movie.title"
+          ngController="title"
+          required minlength="3" maxlength="50"
+        />
+        <span class="help-block" *ngIf="title.touched && title.errors">
+          <span *ngIf="title.errors.required">Enter Titel</span>
+          <span *ngIf="title.errors.minlength">Min 3 characters</span>
+          <span *ngIf="title.errors.maxlength">Max 50 characters</span>
+        </span>
+      </p>      
+      <p>
+        <label>
+          ISBN <input type="text" name="isbn" ngModel>
+        </label>
+      </p>      
+    </fieldset>
+
+    <fieldset ngModelGroup="address">
+      <legend>Address</legend>
+
+      <p>
+        <label>
+          First Name <input type="text" name="firstname" ngModel>
+        </label>
+      </p>      
+      <p>
+        <label>
+          Last Name <input type="text" name="lastname" ngModel>
+        </label>
+      </p>      
+      <p>
+        <label for="street">Street</label>
+        <input id="street"
+          type="text"
+          name="street"
+          placeholder="Street (required)"
+          #street
+          [(ngModel)]="address.street"
+          ngController="street"
+          required minlength="3" maxlength="100"
+        />
+        <span class="help-block" *ngIf="street.touched && street.errors">
+          <span *ngIf="street.errors.required">Enter Titel</span>
+          <span *ngIf="street.errors.minlength">Min 3 characters</span>
+          <span *ngIf="street.errors.maxlength">Max 50 characters</span>
+        </span>
+      </p>      
+    </fieldset>
+    <hr>
+    <p>
+      <button class="btn btn-primary" type="submit">Save</button>
+    </p>
+  </form>
+</div>
+
+<!--
+<div class="container-fluid">
+  <form #editForm="ngForm"
+    (ngSubmit)="saveData(editForm)">
+    <label for="title">Title</label>
+    <input id="title"
+      type="text"
+      placeholder="Title (required)"
+      required minlength="3" maxlength="50"
+      [(ngModel)]="movie.title"
+      ngController="title"
+      #title="ngForm" />
+    <span class="help-block" *ngIf="title.touched && title.errors">
+      <span *ngIf="title.errors.required">Enter Titel</span>
+      <span *ngIf="title.errors.minlength">Min 3 characters</span>
+      <span *ngIf="title.errors.maxlength">Max 50 characters</span>
+    </span>
+    <div [ngClass]="{'has-error': title.touched && !title.valid}" >ok?</div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</div>
+-->

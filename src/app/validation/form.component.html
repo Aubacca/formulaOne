@@ -1,0 +1,17 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    {{title}}
+    <div class="container-fluid">
+      <nav>
+        <button class="btn btn-info btn-sm" routerLink="templateDriven" routerLinkActive="active">Template Driven Validation</button>
+        <button class="btn btn-info btn-sm" routerLink="moduleDriven" routerLinkActive="active">FormBuilder Driven Validation</button>
+      </nav>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="container-fluid">
+      <!-- Routed views go here -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

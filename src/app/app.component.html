@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{title}}
+    <div class="container-fluid">
+      <nav>
+        <button class="btn btn-default pull-right" routerLink="/about" routerLinkActive="active">About</button>
+        <button class="btn btn-default" routerLink="/season" routerLinkActive="active linkSelectedByUser">Seasons</button>
+        <button class="btn btn-default" routerLink="/race" routerLinkActive="active linkSelectedByUser">Races</button>
+        <button class="btn btn-default" routerLink="/driver" routerLinkActive="active">Drivers</button>
+        <button class="btn btn-default" routerLink="/user/person" routerLinkActive="active">Person</button>
+        <button class="btn btn-alert" routerLink="/user/userGroup" routerLinkActive="active">User Groups</button>
+        <button class="btn btn-info" routerLink="/validation" routerLinkActive="active">Forms</button>
+        <button class="btn btn-info" routerLink="/scotch" routerLinkActive="active">scotch.io</button>
+        <button class="btn btn-info" routerLink="/vsv" routerLinkActive="active">VSV</button>
+      </nav>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <!-- Routed views go here -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+<!--
+  <div class="panel-body">
+    <div class="container">
+      <app-season></app-season>
+    </div>
+    <hr>
+    <app-person></app-person>
+    <hr>
+    <app-about></app-about>
+  </div>
+-->
+</div>

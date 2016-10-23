@@ -1,0 +1,33 @@
+input[type="text"]:valid {
+  border-left: 4px solid green;
+}
+
+input[type="text"]:invalid {
+  border: 2px solid red;
+}
+
+
+/* field value is valid */
+.ng-valid {}
+
+/* field value is invalid */
+.ng-invalid {}
+
+/* field has not been clicked in, tapped on, or tabbed over */
+.ng-untouched {}
+
+/* field has been previously entered */
+.ng-touched {}
+
+/* field value is unchanged from the default value */
+.ng-pristine {}
+
+/* field value has been modified from the default */
+.ng-dirty {}
+
+
+/* field has been unvisited and unchanged */
+input.ng-untouched.ng-pristine {}
+
+/* field has been previously visited, and is invalid */
+input.ng-touched.ng-invalid {}
